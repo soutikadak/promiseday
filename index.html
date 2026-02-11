@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promise Day 💍</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{
+font-family:'Montserrat', sans-serif;
+background:radial-gradient(circle at top,#1a1a2e,#16213e,#0f3460,#533483);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Glowing Orbs */
+.orb{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+opacity:0.5;
+animation:floatOrb 20s infinite alternate ease-in-out;
+z-index:0;
+pointer-events:none;
+}
+.orb1{width:300px;height:300px;background:#ff6ec7;top:10%;left:5%;}
+.orb2{width:400px;height:400px;background:#7f5af0;bottom:10%;right:5%;animation-duration:25s;}
+@keyframes floatOrb{
+0%{transform:translateY(0) translateX(0);} 
+100%{transform:translateY(-40px) translateX(40px);} 
+}
+
+/* Sparkle Particles */
+.particle{
+position:fixed;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+opacity:0.8;
+animation:twinkle 3s infinite ease-in-out alternate;
+z-index:0;
+pointer-events:none;
+}
+@keyframes twinkle{
+from{opacity:0.2; transform:scale(0.8);} 
+to{opacity:1; transform:scale(1.4);} 
+}
+
+/* Falling Petals */
+.petal{
+position:fixed;
+top:-20px;
+font-size:18px;
+animation:fall linear infinite;
+z-index:0;
+pointer-events:none;
+}
+@keyframes fall{
+0%{transform:translateY(-20px) rotate(0deg);} 
+100%{transform:translateY(110vh) rotate(360deg);} 
+}
+
+section{
+position:relative;
+z-index:2;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px;
+text-align:center;
+}
+
+h1{
+font-family:'Great Vibes', cursive;
+letter-spacing:1px;
+font-size:3rem;
+margin-bottom:20px;
+animation:fadeInDown 1.5s ease;
+}
+
+p{
+max-width:600px;
+font-size:1.1rem;
+margin-bottom:30px;
+opacity:0.9;
+}
+
+@keyframes fadeInDown{
+from{opacity:0; transform:translateY(-30px);} 
+to{opacity:1; transform:translateY(0);} 
+}
+
+button{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+font-size:1rem;
+cursor:pointer;
+background:rgba(255,255,255,0.2);
+color:white;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+button:hover{
+background:white;
+color:#a18cd1;
+transform:scale(1.1);
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+width:250px;
+height:180px;
+perspective:1000px;
+}
+
+.card-inner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform 0.8s;
+transform-style:preserve-3d;
+cursor:pointer;
+}
+
+.card:hover .card-inner{
+transform:rotateY(180deg);
+}
+
+.card-front,.card-back{
+position:absolute;
+width:100%;
+height:100%;
+border-radius:20px;
+backface-visibility:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+.card-front{font-weight:600;font-size:1.2rem;}
+.card-back{transform:rotateY(180deg);font-size:0.95rem;}
+
+.surprise{opacity:0;transform:translateY(50px);transition:1s;}
+.surprise.show{opacity:1;transform:translateY(0);} 
+
+footer{padding:20px;text-align:center;font-size:0.9rem;opacity:0.8;}
+
+/* Floating Hearts */
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:0;
+pointer-events:none;
+}
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:20px;
+animation:floatUp linear infinite;
+opacity:0.7;
+}
+@keyframes floatUp{
+0%{transform:translateY(0) scale(1); opacity:0.7;}
+100%{transform:translateY(-110vh) scale(1.5); opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<div class="hearts">
+<span class="heart" style="left:10%; animation-duration:12s; animation-delay:0s;">💖</span>
+<span class="heart" style="left:25%; animation-duration:15s; animation-delay:3s;">💗</span>
+<span class="heart" style="left:40%; animation-duration:10s; animation-delay:1s;">💘</span>
+<span class="heart" style="left:60%; animation-duration:18s; animation-delay:5s;">💝</span>
+<span class="heart" style="left:75%; animation-duration:14s; animation-delay:2s;">💞</span>
+<span class="heart" style="left:90%; animation-duration:16s; animation-delay:4s;">💕</span>
+</div>
+
+<!-- Sparkles -->
+<div class="particle" style="top:20%;left:15%;animation-delay:0s"></div>
+<div class="particle" style="top:40%;left:70%;animation-delay:1s"></div>
+<div class="particle" style="top:60%;left:30%;animation-delay:2s"></div>
+<div class="particle" style="top:80%;left:80%;animation-delay:0.5s"></div>
+
+<!-- Petals -->
+<div class="petal" style="left:10%;animation-duration:12s;">🌸</div>
+<div class="petal" style="left:35%;animation-duration:15s;animation-delay:3s;">🌸</div>
+<div class="petal" style="left:60%;animation-duration:18s;animation-delay:5s;">🌸</div>
+<div class="petal" style="left:85%;animation-duration:14s;animation-delay:2s;">🌸</div>
+
+<section>
+<h1>Happy Promise Day 💖</h1>
+<p>Today, I don’t just say words — I make promises that come from my heart. Each one is a forever kind of promise.</p>
+<button onclick="scrollToPromises()">See My Promises 💌</button>
+</section>
+
+<section id="promises">
+<h1>My Promises To You 🌸</h1>
+<div class="cards">
+<div class="card"><div class="card-inner"><div class="card-front">🌷 Forever Support</div><div class="card-back">I promise to stand beside you in every situation — your wins and your struggles.</div></div></div>
+<div class="card"><div class="card-inner"><div class="card-front">💖 Endless Love</div><div class="card-back">I promise to love you more each day, in ways both big and small.</div></div></div>
+<div class="card"><div class="card-inner"><div class="card-front">🤝 Honest Always</div><div class="card-back">I promise to always be honest, transparent, and real with you.</div></div></div>
+<div class="card"><div class="card-inner"><div class="card-front">🌍 Adventure Together</div><div class="card-back">I promise we’ll explore life together — hand in hand.</div></div></div>
+<div class="card"><div class="card-inner"><div class="card-front">🌙 Stay Loyal</div><div class="card-back">I promise my loyalty will never fade — not today, not ever.</div></div></div>
+</div>
+<button style="margin-top:40px;" onclick="showSurprise()">One Last Promise 🎁</button>
+</section>
+
+<section class="surprise" id="surprise">
+<h1>My Forever Promise 💍</h1>
+<p>No matter where life takes us, I promise to choose you — again and again, every single day. ❤️</p>
+</section>
+
+<footer>Made with love 💕 | Promise Day Special</footer>
+
+<script>
+function scrollToPromises(){
+document.getElementById('promises').scrollIntoView({behavior:'smooth'});
+}
+
+function showSurprise(){
+document.getElementById('surprise').classList.add('show');
+document.getElementById('surprise').scrollIntoView({behavior:'smooth'});
+}
+
+/* Parallax Mouse Effect */
+document.addEventListener('mousemove', function(e){
+const x = (window.innerWidth/2 - e.pageX)/40;
+const y = (window.innerHeight/2 - e.pageY)/40;
+document.querySelectorAll('.orb').forEach(function(el){
+el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+});
+});
+</script>
+
+</body>
+</html>
